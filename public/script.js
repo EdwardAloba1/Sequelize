@@ -10,7 +10,8 @@ async function getDining() {
     const diningData = await diningRequest.json();
     console.table(diningData.data); <<
     <<
-    << < HEAD
+    <<
+    < HEAD
     const rows = [diningData];
     diningData.data.forEach((place) => {
         targetBox = document.querySelector('.table_id');
@@ -27,7 +28,8 @@ async function getDining() {
     ===
     = >>>
     >>>
-    > 87 b1f68b0cf177d582a527c31db9413549505be5
+    >
+    87 b1f68b0cf177d582a527c31db9413549505bgit stat
     return diningData;
 }
 
@@ -66,14 +68,16 @@ window.onload = function() {
 
     <<
     <<
-    << < HEAD
+    <<
+    < HEAD
     console.table(windowActions()); ===
     ===
     =
     //console.table(windowActions());
     >>>
     >>>
-    > 87 b1f68b0cf177d582a527c31db9413549505be5
+    >
+    87 b1f68b0cf177d582a527c31db9413549505be5
 
     var chart = new CanvasJS.Chart("chartContainer", {
         animationEnabled: true,
