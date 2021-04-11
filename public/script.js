@@ -1,12 +1,19 @@
 async function getData(){
-    const diningRequest = await fetch('/api/meals');
+    const diningRequest = await fetch('/api/wholeMeals');
     const diningData = await diningRequest.json();
     //console.log(diningData);
     return diningData;
-    console.log(diningData);
-    
-  
 }
+
+async function getDining(){
+    const diningRequest = await fetch('/api/dining');
+    const diningData = await diningRequest.json();
+    console.table(diningData.data);
+    return diningData;
+}
+
+getDining();
+
 
 function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
@@ -14,49 +21,31 @@ function getRandomIntInclusive(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
   }
 
+  
+  const complete = {};
   async function windowActions(){
-    const meals = await getData();
-    
+   
+    const results = await getData();
+    const meals = results.data;
+    //console.table(meals.data);
+
     const mealArray = [1,2,3,4,5,6,7,8,9,10];
-    const selectedMeals = mealArray.map((element) => {
+      const selectedMeals = mealArray.map((element) => {
         const random = getRandomIntInclusive(0,meals.length - 1);
         return meals[random];
     });
-
-    console.log(selectedMeals);
+    
+    console.table(selectedMeals);
+    
 }
 
-
+console.log(complete);
 
 window.onload = function () {
 
-    async function getData(){
-        const diningRequest = await fetch('/api/meals');
-        const diningData = await diningRequest.json();
-        //console.log(diningData);
-        return diningData;
-        console.log(diningData);
-        
-      
-    }
-    
-    function getRandomIntInclusive(min, max) {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
-      }
-    
-      async function windowActions(){
-        const meals = await getData();
-        
-        const mealArray = [1,2,3,4,5,6,7,8,9,10];
-        const selectedMeals = mealArray.map((element) => {
-            const random = getRandomIntInclusive(0,meals.length - 1);
-            return meals[random];
-        });
-    
-        console.log(selectedMeals);
-    }
+   windowActions();
+  
+   //console.table(windowActions());
 
     var chart = new CanvasJS.Chart("chartContainer", {
         animationEnabled: true,
@@ -176,7 +165,6 @@ window.onload = function () {
 var t = document.getElementById('table_id');
 var r =document.createElement('TR');
 t.tBodies[0].appendChild(r)
-
 
 
 getData();
