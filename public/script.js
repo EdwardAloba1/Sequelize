@@ -9,6 +9,7 @@ async function getDining(){
     const diningRequest = await fetch('/api/dining');
     const diningData = await diningRequest.json();
     console.table(diningData.data);
+<<<<<<< HEAD
     const rows = [diningData];
     diningData.data.forEach((place) => {
         targetBox = document.querySelector('.table_id');
@@ -22,6 +23,8 @@ async function getDining(){
             targetBox.append(appendItem);
         }
     });
+=======
+>>>>>>> 87b1f68b0cf177d582a527c31db9413549505be5
     return diningData;
 }
 
@@ -58,7 +61,11 @@ window.onload = function () {
 
    windowActions();
   
+<<<<<<< HEAD
    console.table(windowActions());
+=======
+   //console.table(windowActions());
+>>>>>>> 87b1f68b0cf177d582a527c31db9413549505be5
 
     var chart = new CanvasJS.Chart("chartContainer", {
         animationEnabled: true,
